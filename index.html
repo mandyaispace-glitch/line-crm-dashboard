@@ -16,6 +16,7 @@
             --accent-secondary: #818cf8;
             --accent-tertiary: #34d399;
             --warning: #fbbf24;
+            --danger: #ef4444;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Noto Sans TC', sans-serif; }
@@ -82,6 +83,8 @@
         .analysis-point strong { color: var(--accent-tertiary); display: block; margin-bottom: 0.25rem; }
         
         .highlight-box { background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.3); border-radius: 8px; padding: 1rem; margin-top: 1rem;}
+        .highlight-box.danger { background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); }
+        .highlight-box.danger h4 { color: var(--danger); }
         .highlight-box h4 { color: var(--warning); margin-bottom: 0.5rem; }
 
         .action-list { list-style: none; padding: 0; }
@@ -107,7 +110,7 @@
 
     <header>
         <h1>饗嚮台東 LINE 數據戰情室</h1>
-        <p class="subtitle">B2B/B2C 客群結構與電商自動化轉換評估報告</p>
+        <p class="subtitle">B2B2C 多店家分銷系統的 AI 戰略與轉換評估報告</p>
     </header>
 
     <div class="metrics-row">
@@ -120,8 +123,8 @@
             <div class="metric-label">用戶與客服發話比</div>
         </div>
         <div class="metric-card">
-            <div class="metric-value" style="color: var(--accent-tertiary);">75%</div>
-            <div class="metric-label">人工處理重疊率預估</div>
+            <div class="metric-value" style="color: var(--accent-tertiary);">B2B2C</div>
+            <div class="metric-label">多租戶分銷架構</div>
         </div>
     </div>
 
@@ -145,7 +148,7 @@
                 </div>
                 <div class="highlight-box">
                     <h4>💡 獨家優化建議</h4>
-                    我們要在 LINE 一打開的「六宮格選單」上動手腳。直接放一個按鈕叫「企業/旅行社專區」。當旅行社點下去，系統就給他貼上「大客戶」的隱形標籤，並立刻通知您本人親自接手處理；一般客人點選「農事體驗」，則由機器人引導他們看價目表跟預約。<b>這樣才能把珍貴的真人時間，花在最賺錢的大單上！</b>
+                    我們要在 LINE 一打開的「六宮格選單」上動手腳。直接放一個按鈕叫「企業/旅行社專區」。當旅行社點下去，系統就給他貼上「大客戶」的隱形標籤，並立刻通知您本人親自接手處理；一般客人點選「農事體驗」，則由 AI 機器人引導他們看價目表跟預約。<b>這樣才能把珍貴的真人時間，花在最賺錢的大單上！</b>
                 </div>
             </div>
         </div>
@@ -153,7 +156,7 @@
         <!-- Q2: E-commerce Drop-off -->
         <div class="card">
             <div class="card-header">
-                <h2 class="card-title">🛒 2. 明明有官網，為何客人還要傳 LINE？</h2>
+                <h2 class="card-title">🛒 2. 明明有分銷官網，為何客人還要傳 LINE？</h2>
             </div>
             <div class="chart-container">
                 <canvas id="ecommerceChart"></canvas>
@@ -161,15 +164,15 @@
             <div class="analysis-section">
                 <div class="analysis-point">
                     <strong>📍 發生了什麼事？</strong>
-                    客人在您的官網 (WordPress) 看到體驗行程或農特產品了，但他們要掏錢前突然想問：「請問能用文化幣嗎？」或是「如果下雨會取消嗎？」。因為官網上沒人能馬上回答，他們只好放棄結帳，跑來 LINE 私訊您。
+                    客人在分銷業者的獨立網址上看到行程或產品了，但他們要掏錢前突然想問：「請問能用文化幣嗎？」或是「如果下雨會取消嗎？」。因為分銷網站上沒有專屬智能客服，他們只好放棄結帳，跑來總部的 LINE 私訊您。
                 </div>
                 <div class="analysis-point">
                     <strong>⚠️ 隱形危機</strong>
-                    客人在 LINE 問完您之後，很多時候就直接在 LINE 裡面跟您要匯款帳號了。結果您的官網就變成了「型錄」，完全沒發揮自動結帳、自動寄訂單確認信的功能，所有的帳都要您自己人工對。
+                    客人在總部 LINE 問完問題後，常常直接在 LINE 裡面要求匯款，導致分銷商系統形同虛設，且原本屬於某個分銷商的業績歸屬會變得非常混亂，也增加了人工對帳的麻煩。
                 </div>
                 <div class="highlight-box">
                     <h4>💡 獨家優化建議</h4>
-                    不要讓客人「問完問題後，要在 LINE 裡面匯款」。我們要把機器人設計成：當客人問完問題，機器人立刻回答，並在回答的最後附上<b>「專屬結帳連結按鈕」</b>，引導他們點擊按鈕，直接跳到官網去刷卡或付款。把「收錢與對帳」的工作交還給官網系統！
+                    讓 AI 成為引路人。當客人在 LINE 詢問特定商品時，AI 回答完問題後，會根據客人的來源或關鍵字，給出**專屬該分銷商的結帳連結**，引導他們回歸分銷系統結帳，確保分潤與系統自動化正常運作！
                 </div>
             </div>
         </div>
@@ -177,22 +180,29 @@
         <!-- Q3: Optimal Solution -->
         <div class="card" style="grid-column: 1 / -1;">
             <div class="card-header">
-                <h2 class="card-title">🎯 3. 最白話的「下一步」實作計畫</h2>
+                <h2 class="card-title">🎯 3. 最適化技術解決方案 (AI Agent 戰略)</h2>
             </div>
             <div class="analysis-section" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                 <div>
-                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">
-                        不用請工程師寫程式！既然您的官網是用 <strong>WordPress</strong> 做的，我們只需要去買一個現成的「LINE 管理工具（SaaS 月租費）」，就可以把官網跟 LINE 串接起來。
-                    </p>
+                    <div class="highlight-box danger" style="margin-bottom: 1rem;">
+                        <h4>❌ 為什麼「絕對不能」買傳統的現成 LINE CRM 工具？</h4>
+                        <p style="color: var(--text-secondary); line-height: 1.6;">
+                            因為你們是「多店家分銷系統」，傳統的 CRM（如 Omnichat 等）是設計給「單一品牌官網」用的。如果要為旗下幾十個業者各自串接，不但費用高昂、技術災難，更會導致**你們失去對客戶數據的控制權**，把資源雙手奉上給系統商。
+                        </p>
+                    </div>
                     
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">
+                        基於「多租戶架構」與「系統自主性」，我們為您規劃的是 **「AI 原生大腦架構 (Agentic AI)」**：
+                    </p>
+
                     <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; overflow: hidden;">
                         <tr style="background: rgba(255,255,255,0.1);">
                             <th style="padding: 10px; text-align: left;">考量點</th>
-                            <th style="padding: 10px; text-align: left;">為什麼推薦「現成月租工具」？</th>
+                            <th style="padding: 10px; text-align: left;">AI 原生大腦 (Agent) 的絕對優勢</th>
                         </tr>
-                        <tr><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">💰 費用低</td><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">每個月大約幾千元台幣，不用花幾十萬找人寫系統。</td></tr>
-                        <tr><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">⚡ 速度快</td><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">申請帳號後，隔天就能開始設定機器人。</td></tr>
-                        <tr><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">🛠️ 自己能改</td><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">沒有工程師也沒關係，後台像畫畫一樣，拉方塊就能設計對話。</td></tr>
+                        <tr><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">🔗 整合彈性</td><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">中央 AI 透過 API 呼叫 (MCP)，動態去各個業者的後台看日曆與庫存，不用硬碟對接。</td></tr>
+                        <tr><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">🛡️ 數據控制</td><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">不被第三方 CRM 綁架，所有的對話紀錄與隱形標籤資料都存在您自己的系統裡。</td></tr>
+                        <tr><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">🧠 自然對話</td><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">跳脫傳統死板的按鈕式機器人。AI 懂得辨識顧客意圖，並用像真人一樣的語氣回答。</td></tr>
                     </table>
                 </div>
 
@@ -201,20 +211,20 @@
                         <h4 style="font-size: 1.2rem; color: var(--accent-tertiary); margin-bottom: 1rem;">🏃 我們接下來要做的 4 件事情：</h4>
                         <ul class="action-list">
                             <li>
-                                <strong>第一件事：幫您找工具</strong><br>
-                                我們會找一款有支援 WordPress 的 LINE 工具（例如台灣的 Omnichat）。把它們連在一起後，您的官網就會跟 LINE 互通資訊了。
+                                <strong>第一件事：打造您專屬的 AI 大腦</strong><br>
+                                我會拿您提供的這 3,400 份歷史紀錄當教材，教出一個懂「台東農事體驗」、「紅烏龍」且講話很像真人的 AI 腦袋。
                             </li>
                             <li>
-                                <strong>第二件事：把客人分流</strong><br>
-                                我們要重新設計 LINE 打開時底下的「選單圖片」。讓一般客人點「看商品」，大客戶點「專人服務」，把人群分開，您才不會忙壞。
+                                <strong>第二件事：把 LINE 接上這顆大腦</strong><br>
+                                取代傳統工具，我們直接把 LINE 官方帳號接上這個 AI 大腦，讓它開始幫您代班回答高頻率的重複問題。
                             </li>
                             <li>
-                                <strong>第三件事：機器人代打常見問題</strong><br>
-                                我會幫您整理客人最愛問的 5 個問題（像交通、營業時間、文化幣），設定好機器人。以後客人問這些，機器人一秒鐘自動回答，您連看都不用看。
+                                <strong>第三件事：讓 AI 認識分銷商 (MCP 串接)</strong><br>
+                                開發 API 工具給 AI 呼叫。當客人問「A店家明天有位子嗎？」，AI 會瞬間戳一下系統後台去查日曆，然後回覆客人。
                             </li>
                             <li>
-                                <strong>第四件事：找回猶豫不決的客人（賺錢功能）</strong><br>
-                                官網跟 LINE 連接後，如果客人在官網把「紅烏龍茶」放進購物車但沒付錢就離開了。機器人會在隔天自動傳 LINE 給他：「您購物車裡的茶葉還在等您帶回家喔！」幫您自動把訂單賺回來。
+                                <strong>第四件事：拓展到分銷網站上</strong><br>
+                                未來可以把這顆 AI 變成一個「網頁小客服視窗」，直接貼在每一個分銷商的獨立網站上，把猶豫的客人當場轉化成訂單，不要再讓他們跑回 LINE 求救！
                             </li>
                         </ul>
                     </div>
@@ -256,7 +266,7 @@
         new Chart(ctxEcom, {
             type: 'bar',
             data: {
-                labels: ['在官網看商品', '有問題跳出官網', '改用 LINE 問客服', '在 LINE 裡人工匯款'],
+                labels: ['在分銷網站看商品', '有問題跳出網站', '改用 LINE 問總部', '在 LINE 裡要求匯款'],
                 datasets: [{
                     label: '客人流失狀況',
                     data: [100, 70, 60, 45],
