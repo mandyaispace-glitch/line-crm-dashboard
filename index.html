@@ -70,9 +70,9 @@
         .card-title { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem; }
         .chart-container { position: relative; height: 250px; width: 100%; margin-bottom: 1rem; }
 
-        .metrics-row { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; max-width: 1400px; margin: 0 auto 2rem auto;}
+        .metrics-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; max-width: 1400px; margin: 0 auto 2rem auto;}
         .metric-card {
-            flex: 1; background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(129, 140, 248, 0.1));
+            flex: 1; min-width: 200px; background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(129, 140, 248, 0.1));
             border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 12px; padding: 1.5rem; text-align: center;
         }
         .metric-value { font-size: 2.5rem; font-weight: 900; color: var(--accent-primary); margin-bottom: 0.25rem; }
@@ -103,6 +103,10 @@
             left: 1rem; 
             top: 1rem; 
         }
+        
+        .table-custom { width: 100%; border-collapse: collapse; margin-top: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; overflow: hidden; }
+        .table-custom th { padding: 10px; text-align: left; background: rgba(255,255,255,0.1); color: var(--text-primary); }
+        .table-custom td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); }
 
     </style>
 </head>
@@ -110,17 +114,17 @@
 
     <header>
         <h1>饗嚮台東 LINE 數據戰情室</h1>
-        <p class="subtitle">B2B2C 多店家分銷系統的 AI 戰略與轉換評估報告</p>
+        <p class="subtitle">B2B2C 多店家分銷系統的 AI 戰略與 3,445 份對話數據決策報告</p>
     </header>
 
     <div class="metrics-row">
         <div class="metric-card">
             <div class="metric-value">3,445</div>
-            <div class="metric-label">總潛在名單數</div>
+            <div class="metric-label">分析對話檔案數</div>
         </div>
         <div class="metric-card">
-            <div class="metric-value">1 : 1.08</div>
-            <div class="metric-label">用戶與客服發話比</div>
+            <div class="metric-value">22,452</div>
+            <div class="metric-label">分析顧客發言總數</div>
         </div>
         <div class="metric-card">
             <div class="metric-value" style="color: var(--accent-tertiary);">B2B2C</div>
@@ -129,106 +133,124 @@
     </div>
 
     <div class="dashboard-grid">
-        <!-- Q1: B2B vs B2C -->
-        <div class="card">
+        
+        <!-- Q1: Top FAQs and Products (NEW) -->
+        <div class="card" style="grid-column: 1 / -1;">
             <div class="card-header">
-                <h2 class="card-title">📊 1. 我們的客人都從哪裡來？ (B2B vs B2C)</h2>
+                <h2 class="card-title">🔍 1. 對話數據大解密：客人都問什麼？買什麼？</h2>
             </div>
-            <div class="chart-container">
-                <canvas id="b2bChart"></canvas>
-            </div>
-            <div class="analysis-section">
-                <div class="analysis-point">
-                    <strong>📍 目前狀況</strong>
-                    從聯絡人名單看，大約 75% 是自己來買東西或預約體驗的「一般客人 (B2C)」，另外 25% 則是旅行社、公司福委會或採購部等「企業大客戶 (B2B)」。
+            <div class="analysis-section" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div>
+                    <h3 style="color: var(--accent-primary); margin-bottom: 1rem;">💬 客服痛點 (高頻 FAQ 排名)</h3>
+                    <div class="chart-container" style="height: 300px;">
+                        <canvas id="faqChart"></canvas>
+                    </div>
+                    <p style="color: var(--text-secondary); margin-top: 1rem;">
+                        <strong>最大負擔：</strong>「預約時段 (542次)」、「價格 (243次)」、「匯款後五碼 (156次)」。<br>這佔據了客服超過一半的時間，是最迫切需要 AI 代答的防禦型戰場。
+                    </p>
                 </div>
-                <div class="analysis-point">
-                    <strong>⚠️ 隱形危機</strong>
-                    現在一般客人跟大客戶都在同一個 LINE 裡面排隊等您回覆。如果您正在忙著回答一般客人「明天有開嗎？」這種小問題，可能就會晚了幾小時才回覆旅行社的包團大單，這樣非常可惜。
-                </div>
-                <div class="highlight-box">
-                    <h4>💡 獨家優化建議</h4>
-                    我們要在 LINE 一打開的「六宮格選單」上動手腳。直接放一個按鈕叫「企業/旅行社專區」。當旅行社點下去，系統就給他貼上「大客戶」的隱形標籤，並立刻通知您本人親自接手處理；一般客人點選「農事體驗」，則由 AI 機器人引導他們看價目表跟預約。<b>這樣才能把珍貴的真人時間，花在最賺錢的大單上！</b>
+                <div>
+                    <h3 style="color: var(--accent-tertiary); margin-bottom: 1rem;">💰 潛在成交 (產品關注排名)</h3>
+                    <div class="chart-container" style="height: 300px;">
+                        <canvas id="productChart"></canvas>
+                    </div>
+                    <p style="color: var(--text-secondary); margin-top: 1rem;">
+                        <strong>最大商機：</strong>「農事體驗 (278次)」與「紅烏龍 (208次)」。<br>AI 在面對這些關鍵字時，必須被設定為主動出擊，直接提供分銷商的購買連結。
+                    </p>
                 </div>
             </div>
         </div>
 
         <!-- Q2: E-commerce Drop-off -->
-        <div class="card">
+        <div class="card" style="grid-column: 1 / -1;">
             <div class="card-header">
-                <h2 class="card-title">🛒 2. 明明有分銷官網，為何客人還要傳 LINE？</h2>
+                <h2 class="card-title">🛒 2. 轉換率漏斗：為何分銷官網會掉單？</h2>
             </div>
-            <div class="chart-container">
-                <canvas id="ecommerceChart"></canvas>
-            </div>
-            <div class="analysis-section">
-                <div class="analysis-point">
-                    <strong>📍 發生了什麼事？</strong>
-                    客人在分銷業者的獨立網址上看到行程或產品了，但他們要掏錢前突然想問：「請問能用文化幣嗎？」或是「如果下雨會取消嗎？」。因為分銷網站上沒有專屬智能客服，他們只好放棄結帳，跑來總部的 LINE 私訊您。
+            <div class="analysis-section" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+                <div class="chart-container" style="height: 300px;">
+                    <canvas id="ecommerceChart"></canvas>
                 </div>
-                <div class="analysis-point">
-                    <strong>⚠️ 隱形危機</strong>
-                    客人在總部 LINE 問完問題後，常常直接在 LINE 裡面要求匯款，導致分銷商系統形同虛設，且原本屬於某個分銷商的業績歸屬會變得非常混亂，也增加了人工對帳的麻煩。
-                </div>
-                <div class="highlight-box">
-                    <h4>💡 獨家優化建議</h4>
-                    讓 AI 成為引路人。當客人在 LINE 詢問特定商品時，AI 回答完問題後，會根據客人的來源或關鍵字，給出**專屬該分銷商的結帳連結**，引導他們回歸分銷系統結帳，確保分潤與系統自動化正常運作！
+                <div>
+                    <div class="analysis-point">
+                        <strong>📍 發生了什麼事？</strong>
+                        客人在分銷業者的獨立網址上看到行程，但掏錢前突然想問問題。因為網站上沒有客服，他們只好放棄結帳，跑來總部的 LINE 私訊您。
+                    </div>
+                    <div class="analysis-point">
+                        <strong>⚠️ 隱形危機</strong>
+                        客人在總部 LINE 詢問後，常常直接在 LINE 要求匯款，導致分銷商系統形同虛設，且分潤歸屬混亂，衍生大量人工對帳 (給後五碼) 的麻煩。
+                    </div>
+                    <div class="highlight-box">
+                        <h4>💡 獨家優化建議</h4>
+                        讓 AI 成為引路人。當客人在 LINE 詢問時，AI 回答完問題後，會根據客人的來源或關鍵字，給出**專屬該分銷商的結帳連結**，引導回歸系統結帳！
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Q3: Optimal Solution -->
+        <!-- Q3: Architecture Comparison (NEW) -->
         <div class="card" style="grid-column: 1 / -1;">
             <div class="card-header">
-                <h2 class="card-title">🎯 3. 最適化技術解決方案 (AI Agent 戰略)</h2>
+                <h2 class="card-title">🎯 3. 最適化技術戰略：250元 SaaS vs 自主 AI Agent</h2>
             </div>
-            <div class="analysis-section" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                <div>
-                    <div class="highlight-box danger" style="margin-bottom: 1rem;">
-                        <h4>❌ 為什麼「絕對不能」買傳統的現成 LINE CRM 工具？</h4>
-                        <p style="color: var(--text-secondary); line-height: 1.6;">
-                            因為你們是「多店家分銷系統」，傳統的 CRM（如 Omnichat 等）是設計給「單一品牌官網」用的。如果要為旗下幾十個業者各自串接，不但費用高昂、技術災難，更會導致**你們失去對客戶數據的控制權**，把資源雙手奉上給系統商。
-                        </p>
-                    </div>
-                    
-                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">
-                        基於「多租戶架構」與「系統自主性」，我們為您規劃的是 **「AI 原生大腦架構 (Agentic AI)」**：
-                    </p>
+            <div class="analysis-section">
+                
+                <p style="margin-bottom: 1.5rem; color: var(--text-secondary); font-size: 1.1rem;">
+                    針對 B2B2C 的多店家架構，如果採用市面上便宜的 250元/月 輕量級機器人，將會遇到整合斷層。以下是兩種架構的核心差異：
+                </p>
 
-                    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; overflow: hidden;">
-                        <tr style="background: rgba(255,255,255,0.1);">
-                            <th style="padding: 10px; text-align: left;">考量點</th>
-                            <th style="padding: 10px; text-align: left;">AI 原生大腦 (Agent) 的絕對優勢</th>
-                        </tr>
-                        <tr><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">🔗 整合彈性</td><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">中央 AI 透過 API 呼叫 (MCP)，動態去各個業者的後台看日曆與庫存，不用硬碟對接。</td></tr>
-                        <tr><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">🛡️ 數據控制</td><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">不被第三方 CRM 綁架，所有的對話紀錄與隱形標籤資料都存在您自己的系統裡。</td></tr>
-                        <tr><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">🧠 自然對話</td><td style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05);">跳脫傳統死板的按鈕式機器人。AI 懂得辨識顧客意圖，並用像真人一樣的語氣回答。</td></tr>
-                    </table>
-                </div>
-
-                <div>
-                    <div class="highlight-box" style="margin-top: 0; height: 100%;">
-                        <h4 style="font-size: 1.2rem; color: var(--accent-tertiary); margin-bottom: 1rem;">🏃 我們接下來要做的 4 件事情：</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <!-- Option A -->
+                    <div class="highlight-box danger" style="margin-top: 0;">
+                        <h4 style="font-size: 1.2rem; margin-bottom: 1rem;">❌ 選項 A：市售 250元/月 SaaS 平台</h4>
                         <ul class="action-list">
-                            <li>
-                                <strong>第一件事：打造您專屬的 AI 大腦</strong><br>
-                                我會拿您提供的這 3,400 份歷史紀錄當教材，教出一個懂「台東農事體驗」、「紅烏龍」且講話很像真人的 AI 腦袋。
-                            </li>
-                            <li>
-                                <strong>第二件事：把 LINE 接上這顆大腦</strong><br>
-                                取代傳統工具，我們直接把 LINE 官方帳號接上這個 AI 大腦，讓它開始幫您代班回答高頻率的重複問題。
-                            </li>
-                            <li>
-                                <strong>第三件事：讓 AI 認識分銷商 (MCP 串接)</strong><br>
-                                開發 API 工具給 AI 呼叫。當客人問「A店家明天有位子嗎？」，AI 會瞬間戳一下系統後台去查日曆，然後回覆客人。
-                            </li>
-                            <li>
-                                <strong>第四件事：拓展到分銷網站上</strong><br>
-                                未來可以把這顆 AI 變成一個「網頁小客服視窗」，直接貼在每一個分銷商的獨立網站上，把猶豫的客人當場轉化成訂單，不要再讓他們跑回 LINE 求救！
-                            </li>
+                            <li><strong>運作方式：</strong>基於固定流程圖與關鍵字，死板無彈性。</li>
+                            <li><strong>整合斷層：</strong>無法連接您的分銷後台。當客人要買茶葉，它只會給一個總商城網址，無法區分該給哪個分銷商的連結。</li>
+                            <li><strong>客服負擔：</strong>因為系統不通，您的客服團隊最後還是得**手動處理 100% 的訂單確認、對帳與排位子**。</li>
+                        </ul>
+                    </div>
+
+                    <!-- Option B -->
+                    <div class="highlight-box" style="margin-top: 0; border-color: var(--accent-tertiary); background: rgba(52, 211, 153, 0.1);">
+                        <h4 style="font-size: 1.2rem; color: var(--accent-tertiary); margin-bottom: 1rem;">✅ 選項 B：自主 AI 大腦 (Agentic AI)</h4>
+                        <ul class="action-list">
+                            <li><strong>運作方式：</strong>像真人一樣的自然語意理解，不被選單綁架。</li>
+                            <li><strong>無縫串接：</strong>AI 會透過 API (MCP) 動態向分銷後台查庫存。知道客人從哪來，就精準給出該分銷商的**專屬結帳連結**。</li>
+                            <li><strong>解放人力：</strong>徹底消滅「查匯款後五碼」等行政瑣事。對話數據全部留在您自家系統，不會被第三方綁架。</li>
                         </ul>
                     </div>
                 </div>
+
+                <div style="margin-top: 2rem;">
+                    <h3 style="color: var(--accent-primary); margin-bottom: 1rem;">🏃 我們正在進行的 4 階段實作計畫：</h3>
+                    <table class="table-custom">
+                        <tr>
+                            <th style="width: 20%;">階段</th>
+                            <th>任務內容</th>
+                            <th style="width: 15%; text-align: center;">狀態</th>
+                        </tr>
+                        <tr>
+                            <td><strong>1. 基礎建設</strong></td>
+                            <td>建立 Node.js 核心大腦，串接 LINE Messaging API 與 OpenAI，賦予 AI「分銷客服」角色定位。</td>
+                            <td style="text-align: center; color: var(--accent-tertiary);">🟢 已完成</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. 知識庫訓練</strong></td>
+                            <td>將上述 3,400 筆對話的高頻 Q&A 轉換為 RAG 知識庫，讓 AI 學會應對退費、交通、天氣等防禦型問題。</td>
+                            <td style="text-align: center; color: var(--warning);">⏳ 準備中</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. 分銷商整合</strong></td>
+                            <td>開發 MCP API，讓 AI 能即時查詢分銷系統庫存與日曆，主動產出分銷商專屬結帳連結。</td>
+                            <td style="text-align: center; color: var(--text-secondary);">⚪ 待執行</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. 網站擴展</strong></td>
+                            <td>將這個訓練好的 AI 大腦，以 Web Chat Widget 形式嵌入到各個分銷商的網站上，直接在官網收單。</td>
+                            <td style="text-align: center; color: var(--text-secondary);">⚪ 待執行</td>
+                        </tr>
+                    </table>
+                </div>
+
             </div>
         </div>
     </div>
@@ -238,26 +260,52 @@
         Chart.defaults.color = '#94a3b8';
         Chart.defaults.font.family = "'Noto Sans TC', sans-serif";
 
-        // B2B vs B2C Donut Chart
-        const ctxB2b = document.getElementById('b2bChart').getContext('2d');
-        new Chart(ctxB2b, {
-            type: 'doughnut',
+        // FAQ Bar Chart
+        const ctxFaq = document.getElementById('faqChart').getContext('2d');
+        new Chart(ctxFaq, {
+            type: 'bar',
             data: {
-                labels: ['一般客人 (散客)', '企業/旅行社 (大客戶)'],
+                labels: ['預約/報名', '多少錢/票價', '地點/交通', '取消/退費', '匯款/對帳', '發票/收據'],
                 datasets: [{
-                    data: [75, 25],
-                    backgroundColor: ['#38bdf8', '#818cf8'],
-                    borderWidth: 0,
-                    hoverOffset: 10
+                    label: '詢問次數',
+                    data: [542, 243, 224, 158, 156, 115],
+                    backgroundColor: 'rgba(56, 189, 248, 0.8)',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { color: 'rgba(255,255,255,0.05)' } },
+                    y: { grid: { display: false } }
+                }
+            }
+        });
+
+        // Product Bar Chart
+        const ctxProd = document.getElementById('productChart').getContext('2d');
+        new Chart(ctxProd, {
+            type: 'bar',
+            data: {
+                labels: ['農事/採茶', '紅烏龍', '大地餐桌', '獨木舟/SUP', '伴手禮', '包車'],
+                datasets: [{
+                    label: '關注次數',
+                    data: [278, 208, 130, 98, 52, 23],
+                    backgroundColor: 'rgba(52, 211, 153, 0.8)',
+                    borderRadius: 4
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: {
-                    legend: { position: 'bottom' }
-                },
-                cutout: '70%'
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { grid: { color: 'rgba(255,255,255,0.05)' } },
+                    x: { grid: { display: false } }
+                }
             }
         });
 
@@ -266,7 +314,7 @@
         new Chart(ctxEcom, {
             type: 'bar',
             data: {
-                labels: ['在分銷網站看商品', '有問題跳出網站', '改用 LINE 問總部', '在 LINE 裡要求匯款'],
+                labels: ['在分銷網站看商品', '有問題跳出網站', '改用 LINE 問總部', '在 LINE 要求人工對帳'],
                 datasets: [{
                     label: '客人流失狀況',
                     data: [100, 70, 60, 45],
