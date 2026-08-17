@@ -181,12 +181,18 @@
                 </div>
                 <div>
                     <div class="analysis-point">
-                        <strong>📍 真實數據揭秘 (從 3445 份紀錄算出)</strong>
-                        共有 <strong>482</strong> 位客人在對話中明確表達了預約/購買意願（問價格、要帳號），但最終在 LINE 裡面完成匯款/給後五碼的人數只有 <strong>25 人</strong>。整整流失了 <strong>457 筆訂單</strong>。
+                        <strong>📍 四階段漏斗數據 (從 3445 份紀錄算出)</strong>
+                        <ul style="color: var(--text-secondary); margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
+                            <li><strong>Step 1</strong>: 總接觸人數 3,445 人</li>
+                            <li><strong>Step 2</strong>: 表達商品興趣 529 人 (流失 84%)</li>
+                            <li><strong>Step 3</strong>: 索取匯款帳號 108 人 (流失 80%)</li>
+                            <li><strong>Step 4</strong>: 完成匯款對帳 23 人 (流失 78%)</li>
+                        </ul>
                     </div>
-                    <div class="analysis-point">
-                        <strong>⚠️ 為什麼會掉這麼慘？</strong>
-                        死於「人工回覆的時間差」與「轉帳的麻煩」。當客人問有沒有位子，若沒有立刻拿到專屬連結，衝動購物慾望就消失了。
+                    <div class="analysis-point" style="margin-top: 1rem;">
+                        <strong>⚠️ 最大的痛點在哪？</strong>
+                        最可怕的不是客人不買，而是 <strong>Step 3 到 Step 4 (要了帳號卻不匯款) 竟然高達 78% 的流失率！</strong><br>
+                        這完全是死於「人工回覆的時間差」與「轉帳的麻煩」。當客人拿了帳號，還要自己開網銀、轉帳、再回來回報後五碼，這個過程太長，衝動購物慾望就消失了。
                     </div>
                     <div class="highlight-box danger">
                         <h4>💡 唯一的止血解法：AI 即時收單</h4>
@@ -318,33 +324,39 @@
             }
         });
 
-        // E-commerce Drop-off Funnel (Updated with real data)
+        // True 4-Step Funnel Chart
         const ctxEcom = document.getElementById('ecommerceChart').getContext('2d');
         new Chart(ctxEcom, {
             type: 'bar',
             data: {
-                labels: ['表態高意願 (問價格/預約)', '未及時得到結帳連結', '掉單 (Lost Order)', '完成匯款對帳'],
+                labels: [
+                    'Step 1: 總接觸人數 (3445人)', 
+                    'Step 2: 詢問產品與價格 (529人)', 
+                    'Step 3: 索取匯款帳號 (108人)', 
+                    'Step 4: 完成匯款對帳 (23人)'
+                ],
                 datasets: [{
-                    label: '人數',
-                    data: [482, 457, 457, 25],
+                    label: '留存人數 (Funnel)',
+                    data: [3445, 529, 108, 23],
                     backgroundColor: [
-                        'rgba(56, 189, 248, 0.8)',
-                        'rgba(251, 191, 36, 0.8)',
-                        'rgba(239, 68, 68, 0.8)', // Red for lost order
-                        'rgba(52, 211, 153, 0.8)'  // Green for success
+                        'rgba(56, 189, 248, 0.8)',   // Blue
+                        'rgba(251, 191, 36, 0.8)',   // Yellow
+                        'rgba(249, 115, 22, 0.8)',   // Orange
+                        'rgba(52, 211, 153, 0.8)'    // Green
                     ],
                     borderRadius: 6
                 }]
             },
             options: {
+                indexAxis: 'y', // Make it horizontal like a funnel
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
                     legend: { display: false }
                 },
                 scales: {
-                    y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } },
-                    x: { grid: { display: false } }
+                    x: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } },
+                    y: { grid: { display: false } }
                 }
             }
         });
