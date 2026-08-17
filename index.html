@@ -178,7 +178,7 @@
             </div>
             <div class="metric-card danger">
                 <div class="metric-value">94.8%</div>
-                <div class="metric-label">LINE 內部掉單率 (流失)</div>
+                <div class="metric-label">LINE 內部轉換落差 (流失率)</div>
             </div>
             <div class="metric-card">
                 <div class="metric-value" style="color: var(--accent-tertiary);">B2B2C</div>
@@ -191,25 +191,25 @@
             <!-- Q1: Top FAQs and Products -->
             <div class="card" style="grid-column: 1 / -1;">
                 <div class="card-header">
-                    <h2 class="card-title">🔍 1. 對話數據大解密：客人都問什麼？買什麼？</h2>
+                    <h2 class="card-title">🔍 1. 對話數據分析：顧客需求與意向分佈</h2>
                 </div>
                 <div class="analysis-section" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                     <div>
-                        <h3 style="color: var(--accent-primary); margin-bottom: 1rem;">💬 客服痛點 (高頻 FAQ 排名)</h3>
+                        <h3 style="color: var(--accent-primary); margin-bottom: 1rem;">💬 客服資源佔比 (常見問題排行)</h3>
                         <div class="chart-container" style="height: 300px;">
                             <canvas id="faqChart"></canvas>
                         </div>
                         <p style="color: var(--text-secondary); margin-top: 1rem;">
-                            <strong>最大負擔：</strong>「預約時段 (542次)」、「價格 (243次)」、「匯款後五碼 (156次)」。<br>這佔據了客服超過一半的時間，是最迫切需要 AI 代答的防禦型戰場。
+                            <strong>主要服務負擔：</strong>「預約時段 (542次)」、「價格 (243次)」、「對帳事宜 (156次)」。<br>這三類問題佔據了客服超過半數的時間，是首要需透過 AI 進行自動化回應的防禦型節點。
                         </p>
                     </div>
                     <div>
-                        <h3 style="color: var(--accent-tertiary); margin-bottom: 1rem;">💰 潛在成交 (產品關注排名)</h3>
+                        <h3 style="color: var(--accent-tertiary); margin-bottom: 1rem;">💰 潛在轉換商機 (商品關注排行)</h3>
                         <div class="chart-container" style="height: 300px;">
                             <canvas id="productChart"></canvas>
                         </div>
                         <p style="color: var(--text-secondary); margin-top: 1rem;">
-                            <strong>最大商機：</strong>「在地農事體驗 (278次)」與「招牌在地茶葉 (208次)」。<br>AI 在面對這些關鍵字時，必須被設定為主動出擊，直接提供分銷商的購買連結。
+                            <strong>核心商機所在：</strong>「在地體驗 (278次)」與「招牌茶葉 (208次)」。<br>當 AI 辨識出這些關鍵字時，應主動提供相對應的分銷商專屬結帳連結，促進即時轉換。
                         </p>
                     </div>
                 </div>
@@ -218,7 +218,7 @@
             <!-- Q2: E-commerce Drop-off -->
             <div class="card" style="grid-column: 1 / -1;">
                 <div class="card-header">
-                    <h2 class="card-title">🚨 2. 驚人的 94.8% 掉單率 (Drop-off Rate) 解析</h2>
+                    <h2 class="card-title">📉 2. 結帳漏斗分析：高達 94.8% 轉換落差解析</h2>
                 </div>
                 <div class="analysis-section" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
                     <div class="chart-container" style="height: 300px;">
@@ -226,22 +226,22 @@
                     </div>
                     <div>
                         <div class="analysis-point">
-                            <strong>📍 四階段漏斗數據 (從 3445 份紀錄算出)</strong>
+                            <strong>📍 四階段漏斗數據 (樣本數：3,445 份歷史紀錄)</strong>
                             <ul style="color: var(--text-secondary); margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
                                 <li><strong>Step 1</strong>: 總接觸人數 3,445 人</li>
-                                <li><strong>Step 2</strong>: 表達商品興趣 529 人 (流失 84%)</li>
-                                <li><strong>Step 3</strong>: 索取匯款帳號 108 人 (流失 80%)</li>
-                                <li><strong>Step 4</strong>: 完成匯款對帳 23 人 (流失 78%)</li>
+                                <li><strong>Step 2</strong>: 表達商品興趣 529 人 (階段流失率 84%)</li>
+                                <li><strong>Step 3</strong>: 索取匯款帳號 108 人 (階段流失率 80%)</li>
+                                <li><strong>Step 4</strong>: 完成匯款對帳 23 人 (階段流失率 78%)</li>
                             </ul>
                         </div>
                         <div class="analysis-point" style="margin-top: 1rem;">
-                            <strong>⚠️ 最大的痛點在哪？</strong>
-                            最可怕的不是客人不買，而是 <strong>Step 3 到 Step 4 (要了帳號卻不匯款) 竟然高達 78% 的流失率！</strong><br>
-                            這完全是死於「人工回覆的時間差」與「轉帳的麻煩」。當客人拿了帳號，還要自己開網銀、轉帳、再回來回報後五碼，這個過程太長，衝動購物慾望就消失了。
+                            <strong>⚠️ 轉換瓶頸分析</strong>
+                            值得注意的是，在 <strong>Step 3 進入 Step 4 (已取得帳號但未完成匯款) 這個環節，仍有高達 78% 的流失。</strong><br>
+                            這主要歸因於「人工回覆的等待時間」以及「手動轉帳與對帳的繁雜程序」。當顧客取得帳號後，仍需自行開啟網銀、進行轉帳，並截圖或提供後五碼回報，過長的流程顯著降低了最終成交率。
                         </div>
                         <div class="highlight-box danger">
-                            <h4>💡 唯一的止血解法：AI 即時收單</h4>
-                            切換到上方的「🤖 AI 意圖對話解方」頁籤，看看我們如何透過 AI 大腦，秒殺這段流程！
+                            <h4>💡 優化建議方案：AI 即時導購</h4>
+                            請切換至上方的「🤖 AI 意圖對話解方」頁籤，參考我們如何透過 AI 系統，大幅縮短結帳路徑並提升轉換效率。
                         </div>
                     </div>
                 </div>
@@ -250,57 +250,57 @@
             <!-- Q3: Architecture Comparison -->
             <div class="card" style="grid-column: 1 / -1;">
                 <div class="card-header">
-                    <h2 class="card-title">🎯 3. 最適化技術戰略：250元 SaaS vs 自主 AI Agent</h2>
+                    <h2 class="card-title">🎯 3. 技術架構評估：一般 SaaS 平台 vs 自主 AI Agent</h2>
                 </div>
                 <div class="analysis-section">
                     
                     <p style="margin-bottom: 1.5rem; color: var(--text-secondary); font-size: 1.1rem;">
-                        針對 B2B2C 的多店家架構，如果採用市面上便宜的 250元/月 輕量級機器人，將會遇到整合斷層。以下是兩種架構的核心差異：
+                        針對 B2B2C 的多店家架構，若採用市面上標準化的輕量級客服機器人，容易遇到系統整合的斷層。以下為兩種架構的核心差異評估：
                     </p>
 
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                         <!-- Option A -->
                         <div class="highlight-box danger" style="margin-top: 0;">
-                            <h4 style="font-size: 1.2rem; margin-bottom: 1rem;">❌ 選項 A：市售 250元/月 SaaS 平台</h4>
+                            <h4 style="font-size: 1.2rem; margin-bottom: 1rem;">❌ 選項 A：一般標準化 SaaS 平台</h4>
                             <ul class="action-list">
-                                <li><strong>運作方式：</strong>基於固定流程圖與關鍵字，死板無彈性。</li>
-                                <li><strong>整合斷層：</strong>無法連接您的分銷後台。當客人要買茶葉，它只會給一個總商城網址，無法區分該給哪個分銷商的連結。</li>
-                                <li><strong>客服負擔：</strong>因為系統不通，您的客服團隊最後還是得**手動處理 100% 的訂單確認、對帳與排位子**。</li>
+                                <li><strong>運作方式：</strong>基於固定流程樹與關鍵字比對，較欠缺語意彈性。</li>
+                                <li><strong>整合瓶頸：</strong>無法無縫串接分銷商後台。當顧客詢問商品時，往往只能提供總部的單一商城網址，無法精準分配對應的分銷商連結。</li>
+                                <li><strong>人力成本：</strong>受限於系統未串接，客服團隊仍需花費大量時間進行人工訂單確認與對帳作業。</li>
                             </ul>
                         </div>
 
                         <!-- Option B -->
                         <div class="highlight-box" style="margin-top: 0; border-color: var(--accent-tertiary); background: rgba(52, 211, 153, 0.1);">
-                            <h4 style="font-size: 1.2rem; color: var(--accent-tertiary); margin-bottom: 1rem;">✅ 選項 B：自主 AI 大腦 (Agentic AI)</h4>
+                            <h4 style="font-size: 1.2rem; color: var(--accent-tertiary); margin-bottom: 1rem;">✅ 選項 B：自主架構 AI 大腦 (Agentic AI)</h4>
                             <ul class="action-list">
-                                <li><strong>運作方式：</strong>像真人一樣的自然語意理解，不被選單綁架。</li>
-                                <li><strong>無縫串接：</strong>即便沒有 API，AI 也能透過靜態網址拼湊術，精準給出該分銷商的**專屬結帳連結**。</li>
-                                <li><strong>解放人力：</strong>徹底消滅「查匯款後五碼」等行政瑣事。</li>
+                                <li><strong>運作方式：</strong>具備高度自然語言理解能力，能靈活應對顧客的各種語境。</li>
+                                <li><strong>無縫整合：</strong>即使在缺乏 API 的環境下，AI 亦能透過動態網址生成技術，精準配發分銷商的<strong>專屬結帳連結</strong>。</li>
+                                <li><strong>提升效能：</strong>有效減少「核對匯款後五碼」等行政負擔，並確保數據資產保留於內部系統。</li>
                             </ul>
                         </div>
                     </div>
 
                     <div style="margin-top: 2rem;">
-                        <h3 style="color: var(--accent-primary); margin-bottom: 1rem;">🏃 我們正在進行的 4 階段實作計畫：</h3>
+                        <h3 style="color: var(--accent-primary); margin-bottom: 1rem;">🏃 專案實作進度概覽：</h3>
                         <table class="table-custom">
                             <tr>
                                 <th style="width: 20%;">階段</th>
-                                <th>任務內容</th>
+                                <th>實作內容</th>
                                 <th style="width: 15%; text-align: center;">狀態</th>
                             </tr>
                             <tr>
-                                <td><strong>1. 基礎建設與 RAG 大腦</strong></td>
-                                <td>建立 Node.js 核心大腦，串接 LINE 與 OpenAI。將高頻 Q&A 轉換為知識庫，讓 AI 學會防禦型問題。</td>
+                                <td><strong>1. 基礎建設與 RAG 模型</strong></td>
+                                <td>建置 Node.js 核心服務，整合 LINE 與 LLM。將歷史高頻 Q&A 轉化為知識庫，賦予 AI 基礎服務能力。</td>
                                 <td style="text-align: center; color: var(--accent-tertiary);">🟢 已完成</td>
                             </tr>
                             <tr>
-                                <td><strong>2. 靜態導購大腦 (免 API)</strong></td>
-                                <td>建立分銷商網址規則對照表，讓 AI 能根據意圖，動態產出帶有分銷商追蹤碼的結帳連結。</td>
+                                <td><strong>2. 靜態導購機制 (免 API)</strong></td>
+                                <td>建立分銷商網址映射規則，使 AI 能依據顧客意圖，動態生成附帶分銷商追蹤碼的結帳連結。</td>
                                 <td style="text-align: center; color: var(--warning);">⏳ 進行中</td>
                             </tr>
                             <tr>
-                                <td><strong>3. Web Chat Widget</strong></td>
-                                <td>將訓練好的 AI 大腦，以對話窗形式嵌入到各個分銷商的獨立網站上，直接在官網收單。</td>
+                                <td><strong>3. Web Chat 整合</strong></td>
+                                <td>將完成訓練的 AI 模型，以對話視窗形式嵌入至各分銷商網站，實現跨平台的自動化收單。</td>
                                 <td style="text-align: center; color: var(--text-secondary);">⚪ 待執行</td>
                             </tr>
                         </table>
@@ -317,34 +317,34 @@
             <div class="card" style="grid-column: 1 / -1;">
                 <div class="card-header">
                     <h2 class="card-title" style="color: var(--accent-tertiary);">🎯 AI 對話意圖設計 (Conversation Intent Design)</h2>
-                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">核心目標：透過 AI 主動導流，徹底消滅 78% 的「要帳號不匯款」流失率。</p>
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">核心目標：透過 AI 主動導購機制，改善傳統人工對帳造成的 78% 結帳流失率。</p>
                 </div>
                 
                 <!-- Old Way vs New Way Intro -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;">
                     <div style="background: rgba(239, 68, 68, 0.05); padding: 1.5rem; border-radius: 12px; border: 1px dashed rgba(239, 68, 68, 0.3);">
-                        <h3 style="color: var(--danger); margin-bottom: 1rem;">🚫 過去的致命死胡同 (高流失)</h3>
+                        <h3 style="color: var(--danger); margin-bottom: 1rem;">🚫 傳統服務流程的瓶頸</h3>
                         <div class="chat-bubble chat-user">
-                            <span class="chat-label">🧑 顧客 (意圖: 想預約)</span>
+                            <span class="chat-label">🧑 顧客 (意圖: 查詢預約)</span>
                             請問明天下午的在地體驗還有位子嗎？兩個大人。
                         </div>
                         <div class="chat-bubble chat-old">
-                            <span class="chat-label">🧑‍💻 人工客服 (半小時後)</span>
+                            <span class="chat-label">🧑‍💻 人工客服 (等待期)</span>
                             您好，明天下午有位子喔！總共 1,200 元。這是我們的帳號：玉山銀行(808) 0987-654-321，匯款後請提供後五碼喔！
                         </div>
-                        <p style="color: var(--text-secondary); font-size: 0.9rem; text-align: center;">👇<br>客人去忙別的事，覺得開網銀太麻煩，再也沒有回來 (Drop-off)</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; text-align: center;">👇<br>繁瑣的轉帳流程與等待時間，容易導致顧客流失 (Drop-off)</p>
                     </div>
 
                     <div style="background: rgba(52, 211, 153, 0.05); padding: 1.5rem; border-radius: 12px; border: 1px dashed rgba(52, 211, 153, 0.3);">
-                        <h3 style="color: var(--accent-tertiary); margin-bottom: 1rem;">🚀 全新的 AI 收單高速公路</h3>
+                        <h3 style="color: var(--accent-tertiary); margin-bottom: 1rem;">🚀 AI 優化後的服務體驗</h3>
                         <div class="chat-bubble chat-user">
-                            <span class="chat-label">🧑 顧客 (意圖: 想預約)</span>
+                            <span class="chat-label">🧑 顧客 (意圖: 查詢預約)</span>
                             請問這週六早上，特色餐桌還有 4 個人的位子嗎？
                         </div>
                         <div class="chat-bubble chat-ai">
-                            <span class="chat-label">🤖 AI 大腦 (秒回)</span>
-                            您好！這週六的特色餐桌非常搶手呢！為了幫您保留最棒的座位，請點擊下方「即時預約系統」，在網頁內完成結帳，位子就會立刻為您自動鎖定！<br>
-                            <a href="#" class="chat-link">👉 點我進入特色餐桌即時預約系統</a>
+                            <span class="chat-label">🤖 AI 專員 (即時回覆)</span>
+                            您好！這週六的特色餐桌非常受歡迎喔！為協助您順利保留席位，請點擊下方的「即時預約系統」，在網頁內完成結帳，位子就會為您自動保留！<br>
+                            <a href="#" class="chat-link">👉 進入特色餐桌預約系統</a>
                         </div>
                     </div>
                 </div>
@@ -356,43 +356,43 @@
                     
                     <!-- Intent 1 -->
                     <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem;">
-                        <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">📦 Intent 1: 產品詢價與購買</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;"><strong>AI 戰略：</strong>絕不給帳號，直接提供帶有分銷商追蹤碼的購物車連結。</p>
+                        <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">📦 Intent 1: 商品詢價與結帳</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;"><strong>AI 策略：</strong>主動提供附帶分銷商追蹤碼的購物連結，減少溝通來回。</p>
                         <div class="chat-bubble chat-user">
                             <span class="chat-label">🧑 顧客</span>
                             我想買三盒招牌茶葉，多少錢？
                         </div>
                         <div class="chat-bubble chat-ai">
-                            <span class="chat-label">🤖 AI 大腦</span>
-                            我們最熱銷的招牌茶葉一盒是 600 元，三盒剛好免運！請點擊下方的「專屬結帳連結」刷卡或 LINE Pay，我們明天就出貨！
+                            <span class="chat-label">🤖 AI 專員</span>
+                            我們最受歡迎的招牌茶葉一盒是 600 元，目前帶三盒享有免運優惠！請點擊下方的「專屬結帳連結」選擇信用卡或 LINE Pay，我們明天即可為您安排出貨。
                         </div>
                     </div>
 
                     <!-- Intent 2 -->
                     <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem;">
-                        <h4 style="color: var(--warning); margin-bottom: 1rem;">🛡️ Intent 2: 索取匯款帳號 (防守反擊)</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;"><strong>AI 戰略：</strong>溫柔地拒絕提供帳號，強制引導至線上系統，消滅人工對帳。</p>
+                        <h4 style="color: var(--warning); margin-bottom: 1rem;">🛡️ Intent 2: 對帳流程優化</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;"><strong>AI 策略：</strong>委婉引導顧客使用線上系統，降低傳統匯款的行政成本。</p>
                         <div class="chat-bubble chat-user">
                             <span class="chat-label">🧑 顧客</span>
                             請問要匯款到哪個帳號？我匯好給你們。
                         </div>
                         <div class="chat-bubble chat-ai">
-                            <span class="chat-label">🤖 AI 大腦</span>
-                            為了保護您的交易安全，我們已全面升級「線上快速對帳系統」囉！請點擊專屬連結，可刷卡或產出虛擬帳號，系統會自動對帳，免回報後五碼喔！
+                            <span class="chat-label">🤖 AI 專員</span>
+                            為保障您的交易安全與作業效率，我們已全面升級為「線上快速對帳系統」囉！請點擊您的專屬連結，可選擇刷卡或產出虛擬帳號，系統會自動為您對帳，省去回報後五碼的流程喔。
                         </div>
                     </div>
 
                     <!-- Intent 3 -->
                     <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem;">
-                        <h4 style="color: var(--text-secondary); margin-bottom: 1rem;">💬 Intent 3: 售後與防禦性問題</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;"><strong>AI 戰略：</strong>根據知識庫給予標準答案，減輕客服人力負擔。</p>
+                        <h4 style="color: var(--text-secondary); margin-bottom: 1rem;">💬 Intent 3: 常見問題處理</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;"><strong>AI 策略：</strong>依據知識庫提供標準一致的答覆，維持專業服務品質。</p>
                         <div class="chat-bubble chat-user">
                             <span class="chat-label">🧑 顧客</span>
                             如果當天下雨可以退費嗎？
                         </div>
                         <div class="chat-bubble chat-ai" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1);">
-                            <span class="chat-label" style="color: #fff;">🤖 AI 大腦</span>
-                            請不用擔心！如果是颱風發布陸上警報，會為您全額退費。若是小雨，部分戶外體驗會視情況調整為室內活動。出發前一天我們會主動通知您喔！
+                            <span class="chat-label" style="color: #fff;">🤖 AI 專員</span>
+                            請不用擔心！若是發布陸上颱風警報，我們將為您辦理全額退費。若為一般降雨，戶外體驗會視情況調整為室內活動。我們將於出發前一天主動通知您最新安排！
                         </div>
                     </div>
 
